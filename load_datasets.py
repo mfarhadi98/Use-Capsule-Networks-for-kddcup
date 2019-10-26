@@ -1,5 +1,49 @@
 from keras.utils import to_categorical
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+def load_kddcup():
+    #importing the dataset
+    dataset = pd.read_csv('kddcup.data_10_percent_corrected')
+    
+    #change Multi-class to binary-class
+    dataset['normal.'] = dataset['normal.'].replace(['back.', 'buffer_overflow.', 'ftp_write.', 'guess_passwd.', 'imap.', 'ipsweep.', 'land.', 'loadmodule.', 'multihop.', 'neptune.', 'nmap.', 'perl.', 'phf.', 'pod.', 'portsweep.', 'rootkit.', 'satan.', 'smurf.', 'spy.', 'teardrop.', 'warezclient.', 'warezmaster.'], 'attack')
+    x = dataset.iloc[:, :-1].values
+    y = dataset.iloc[:, 41].values
+    
+    #encoding categorical data
+    from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+    labelencoder_x_1 = LabelEncoder()
+    labelencoder_x_2 = LabelEncoder()
+    labelencoder_x_3 = LabelEncoder()
+    x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1])
+    x[:, 2] = labelencoder_x_2.fit_transform(x[:, 2])
+    x[:, 3] = labelencoder_x_3.fit_transform(x[:, 3])
+    onehotencoder_1 = OneHotEncoder(categorical_features = [1])
+    x = onehotencoder_1.fit_transform(x).toarray()
+    onehotencoder_2 = OneHotEncoder(categorical_features = [4])
+    x = onehotencoder_2.fit_transform(x).toarray()
+    onehotencoder_3 = OneHotEncoder(categorical_features = [70])
+    x = onehotencoder_3.fit_transform(x).toarray()
+    labelencoder_y = LabelEncoder()
+    y = labelencoder_y.fit_transform(y)
+    
+    #splitting the dataset into the training set and test set
+    from sklearn.cross_validation import train_test_split
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3, random_state = 0)
+    
+    #feature scaling
+    from sklearn.preprocessing import StandardScaler
+    sc_x = StandardScaler()
+    x_train = sc_x.fit_transform(x_train)
+    x_test = sc_x.transform(x_test)
+    #in tike ro az code haye paein bardashti
+    x_train = x_train.reshape(-1, 32, 32, 3).astype('float32') / 255.
+    x_test = x_test.reshape(-1, 32, 32, 3).astype('float32') / 255.
+    y_train = to_categorical(y_train.astype('float32'))
+    y_test = to_categorical(y_test.astype('float32'))
+    return (x_train, y_train), (x_test, y_test)
 
 def load_cifar10():
     from keras.datasets import cifar10
