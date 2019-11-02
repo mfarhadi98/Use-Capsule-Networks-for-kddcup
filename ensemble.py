@@ -73,6 +73,7 @@ t = np.argmax(y_test, 1)
 def resize(data_set):
     X_temp = []
     import scipy
+    import scipy.misc #man ezafe kardam
     for i in range(data_set.shape[0]):
         resized = scipy.misc.imresize(data_set[i], (64, 64))
         X_temp.append(resized)
