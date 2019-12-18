@@ -88,7 +88,7 @@ class args:
     t = False
     w = None
     ep_num = 0
-    dataset = "MNIST"
+    dataset = "kddcup"
 
 os.makedirs(args.save_dir, exist_ok=True)
 try:
@@ -114,6 +114,8 @@ elif(args.dataset == "SVHN"):
     (x_train, y_train), (x_test, y_test) = load_svhn()
     x_train = resize(x_train, 64)
     x_test = resize(x_test, 64)
+elif(args.dataset == "kddcup"):
+    (x_train, y_train), (x_test, y_test) = load_kddcup()
 
 # x_train,y_train,x_test,y_test = load_tiny_imagenet("tiny_imagenet/tiny-imagenet-200", 200)
 
