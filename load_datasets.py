@@ -2,10 +2,13 @@ from keras.utils import to_categorical
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from google.colab import drive
 
 def load_kddcup():
     #importing the dataset
-    dataset = pd.read_csv('kddcup.data_10_percent_corrected')
+    drive.mount('/content/gdrive')
+    dataset = pd.read_csv('/content/gdrive/My Drive/kddcup.data_10_percent_corrected.csv')
+    print("Hooooooooooooooooooooooooooooora")
     
     #change Multi-class to binary-class
     dataset['normal.'] = dataset['normal.'].replace(['back.', 'buffer_overflow.', 'ftp_write.', 'guess_passwd.', 'imap.', 'ipsweep.', 'land.', 'loadmodule.', 'multihop.', 'neptune.', 'nmap.', 'perl.', 'phf.', 'pod.', 'portsweep.', 'rootkit.', 'satan.', 'smurf.', 'spy.', 'teardrop.', 'warezclient.', 'warezmaster.'], 'attack')
