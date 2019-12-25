@@ -43,10 +43,10 @@ def load_kddcup():
     x_train = sc_x.fit_transform(x_train)
     x_test = sc_x.transform(x_test)
     #in tike ro az code haye paein bardashti
-    x_train = x_train.reshape(-1, 32, 32, 3).astype('float32') / 255.
+    """x_train = x_train.reshape(-1, 32, 32, 3).astype('float32') / 255.
     x_test = x_test.reshape(-1, 32, 32, 3).astype('float32') / 255.
     y_train = to_categorical(y_train.astype('float32'))
-    y_test = to_categorical(y_test.astype('float32'))
+    y_test = to_categorical(y_test.astype('float32'))"""
     return (x_train, y_train), (x_test, y_test)
 
 def load_cifar10():
