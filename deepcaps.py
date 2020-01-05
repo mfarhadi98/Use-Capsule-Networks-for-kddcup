@@ -96,9 +96,11 @@ def DeepCapsNet28(input_shape, n_class, routings):
     x = Input(shape=input_shape)
     l = x
 
-    l = Conv2D(128, (3, 3), strides=(1, 1), activation='relu', padding="same")(l)  # common conv layer
+    #l = Conv2D(128, (3, 3), strides=(1, 1), activation='relu', padding="same")(l)  # common conv layer
+    l = Conv1D(128, (3), strides=(1), activation='relu', padding="same")(l)
     l = BatchNormalization()(l)
     l = ConvertToCaps()(l)
+    print("joooooooooooooooooooooooooooooooooooooooon")
 
     l = Conv2DCaps(32, 4, kernel_size=(3, 3), strides=(2, 2), r_num=1, b_alphas=[1, 1, 1])(l)
     l_skip = Conv2DCaps(32, 4, kernel_size=(3, 3), strides=(1, 1), r_num=1, b_alphas=[1, 1, 1])(l)
