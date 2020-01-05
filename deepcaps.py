@@ -93,6 +93,7 @@ def DeepCapsNet(input_shape, n_class, routings):
 
 def DeepCapsNet28(input_shape, n_class, routings):
     # assemble encoder
+    print("joooooooooooooooooooooooooooooooooooooooon0")
     x = Input(shape=input_shape)
     l = x
 
