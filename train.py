@@ -88,7 +88,7 @@ class args:
     t = False
     w = None
     ep_num = 0
-    dataset = "kddcup"
+    dataset = "CIFAR100"
 
 os.makedirs(args.save_dir, exist_ok=True)
 try:
@@ -120,7 +120,12 @@ elif(args.dataset == "kddcup"):
 # x_train,y_train,x_test,y_test = load_tiny_imagenet("tiny_imagenet/tiny-imagenet-200", 200)
 
 
-
+print("x_train.shape[1:] = ")
+print(x_train.shape[1:])
+print("y_train.shape[1] = ")
+print(y_train.shape[1])
+print("args.routings = ")
+print(args.routings)
 # model, eval_model = DeepCapsNet(input_shape=x_train.shape[1:], n_class=y_train.shape[1], routings=args.routings)  # for 64*64
 model, eval_model = DeepCapsNet28(input_shape=x_train.shape[1:], n_class=y_train.shape[1], routings=args.routings)  #for 28*28
 
