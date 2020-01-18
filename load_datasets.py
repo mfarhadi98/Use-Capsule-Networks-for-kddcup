@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from google.colab import drive
+import scipy.misc
 
 def load_kddcup():
     #importing the dataset
