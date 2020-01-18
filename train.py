@@ -88,7 +88,7 @@ class args:
     t = False
     w = None
     ep_num = 0
-    dataset = "CIFAR100"
+    dataset = "kddcup"
 
 os.makedirs(args.save_dir, exist_ok=True)
 try:
