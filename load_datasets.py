@@ -24,11 +24,11 @@ def load_kddcup():
     x[:, 1] = labelencoder_x_1.fit_transform(x[:, 1])
     x[:, 2] = labelencoder_x_2.fit_transform(x[:, 2])
     x[:, 3] = labelencoder_x_3.fit_transform(x[:, 3])
-    onehotencoder_1 = OneHotEncoder(categorical_features = [1])
+    onehotencoder_1 = OneHotEncoder(categories[1])#categorical_features = [1]
     x = onehotencoder_1.fit_transform(x).toarray()
-    onehotencoder_2 = OneHotEncoder(categorical_features = [4])
+    onehotencoder_2 = OneHotEncoder(categories[4])#categorical_features = [4]
     x = onehotencoder_2.fit_transform(x).toarray()
-    onehotencoder_3 = OneHotEncoder(categorical_features = [70])
+    onehotencoder_3 = OneHotEncoder(categories[70])#categorical_features = [70]
     x = onehotencoder_3.fit_transform(x).toarray()
     labelencoder_y = LabelEncoder()
     y = labelencoder_y.fit_transform(y)
