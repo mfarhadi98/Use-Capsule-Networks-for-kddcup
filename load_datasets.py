@@ -29,15 +29,15 @@ def load_kddcup():
     
     onehotencoder_1 = ColumnTransformer([('one_hot_encoder', OneHotEncoder(), [1])], remainder = 'passthrough')
     #onehotencoder_1 = OneHotEncoder(categories=[1])#categorical_features = [1]
-    x = onehotencoder_1.fit_transform(x).toarray()
+    x = onehotencoder_1.fit_transform(x)#.toarray()
     
     onehotencoder_2 = ColumnTransformer([('one_hot_encoder', OneHotEncoder(), [4])], remainder = 'passthrough')
     #onehotencoder_2 = OneHotEncoder(categories=[4])#categorical_features = [4]
-    x = onehotencoder_2.fit_transform(x).toarray()
+    x = onehotencoder_2.fit_transform(x)#.toarray()
     
     onehotencoder_3 = ColumnTransformer([('one_hot_encoder', OneHotEncoder(), [70])], remainder = 'passthrough')
     #onehotencoder_3 = OneHotEncoder(categories=[70])#categorical_features = [70]
-    x = onehotencoder_3.fit_transform(x).toarray()
+    x = onehotencoder_3.fit_transform(x)#.toarray()
     labelencoder_y = LabelEncoder()
     y = labelencoder_y.fit_transform(y)
     
