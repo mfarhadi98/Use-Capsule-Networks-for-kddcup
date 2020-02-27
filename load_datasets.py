@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from google.colab import drive
 import scipy.misc
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
 
 def load_kddcup():
     #importing the dataset
