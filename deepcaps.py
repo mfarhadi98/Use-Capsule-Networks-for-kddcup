@@ -96,7 +96,8 @@ def DeepCapsNet28(input_shape, n_class, routings):
     print("joooooooooooooooooooooooooooooooooooooooon0")
     x = Input(shape=input_shape)
     l = x
-
+    print(len(l))
+    print(len(l[0]))
     #l = Conv2D(128, (3, 3), strides=(1, 1), activation='relu', padding="same")(l)  # common conv layer
     print("joooooooooooooooooooooooooooooooooooooooon1")
     l = Conv1D(128, kernel_size=(3), strides=(1), activation='relu', padding="same")(l)
