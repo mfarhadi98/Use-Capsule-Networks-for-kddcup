@@ -56,6 +56,8 @@ def load_kddcup():
     x_test = x_test.reshape(-1, 32, 32, 3).astype('float32') / 255.
     y_train = to_categorical(y_train.astype('float32'))
     y_test = to_categorical(y_test.astype('float32'))"""
+    print(x_train.shape)
+    print("*************************************")
     return (x_train, y_train), (x_test, y_test)
 
 def load_cifar10():
