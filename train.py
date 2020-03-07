@@ -80,7 +80,7 @@ class args:
     lr_decay = 0.96
     lam_recon = 0.4
     r = 3
-    routings = 2
+    routings = 3
     shift_fraction = 0.1
     debug = False
     digit = 5
