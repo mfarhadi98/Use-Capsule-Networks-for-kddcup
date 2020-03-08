@@ -87,6 +87,7 @@ class Conv2DCaps(layers.Layer):
                  activity_regularizer=None,
                  kernel_constraint=None,
                  **kwargs):
+        print("11111111111111111")
         super(Conv2DCaps, self).__init__(**kwargs)
         rank = 2
         self.ch_j = ch_j  # Number of capsules in layer J
@@ -106,6 +107,7 @@ class Conv2DCaps(layers.Layer):
         self.input_spec = InputSpec(ndim=rank + 3)
 
     def build(self, input_shape):
+        print("22222222222222222222222")
 
         self.h_i, self.w_i, self.ch_i, self.n_i = input_shape[1:5]
 
@@ -133,6 +135,7 @@ class Conv2DCaps(layers.Layer):
         self.built = True
 
     def call(self, inputs):
+        print("333333333333333333333")
         if self.r_num == 1:
             # if there is no routing (and this is so when r_num is 1 and all c are equal)
             # then this is a common convolution
@@ -151,9 +154,11 @@ class Conv2DCaps(layers.Layer):
         return outputs
 
     def compute_output_shape(self, input_shape):
+        print("444444444444444444444")
         return (input_shape[0], self.h_j, self.w_j, self.ch_j, self.n_j)
 
     def get_config(self):
+        print("5555555555555555555555")
         config = {
             'ch_j': self.ch_j,
             'n_j': self.n_j,
