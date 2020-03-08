@@ -89,9 +89,12 @@ class Conv2DCaps(layers.Layer):
                  **kwargs):
         print("11111111111111111")
         super(Conv2DCaps, self).__init__(**kwargs)
+        print("22222222")
         rank = 2
         self.ch_j = ch_j  # Number of capsules in layer J
+        print("333333333333")
         self.n_j = n_j  # Number of neurons in a capsule in J
+        print("4444444444")
         self.kernel_size = conv_utils.normalize_tuple(kernel_size, rank, 'kernel_size')
         self.strides = conv_utils.normalize_tuple(strides, rank, 'strides')
         self.r_num = r_num
