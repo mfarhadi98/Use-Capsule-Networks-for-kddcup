@@ -96,18 +96,28 @@ class Conv2DCaps(layers.Layer):
         self.n_j = n_j  # Number of neurons in a capsule in J
         print("4444444444")
         self.kernel_size = conv_utils.normalize_tuple(kernel_size, rank, 'kernel_size')
+        print("555555555555")
         self.strides = conv_utils.normalize_tuple(strides, rank, 'strides')
+        print("6666666")
         self.r_num = r_num
         self.b_alphas = b_alphas
         self.padding = conv_utils.normalize_padding(padding)
+        print("777777777")
         self.data_format = K.normalize_data_format(data_format)
+        print("88888888")
         self.dilation_rate = (1, 1)
         self.kernel_initializer = initializers.get(kernel_initializer)
+        print("999999999")
         self.bias_initializer = initializers.get(bias_initializer)
+        print("yyyy")
         self.kernel_regularizer = regularizers.get(kernel_regularizer)
+        print("kkkkkkkk")
         self.activity_regularizer = regularizers.get(activity_regularizer)
+        print("fffffff")
         self.kernel_constraint = constraints.get(kernel_constraint)
+        print("gggggggg")
         self.input_spec = InputSpec(ndim=rank + 3)
+        print("sssssssss")
 
     def build(self, input_shape):
         print("22222222222222222222222")
