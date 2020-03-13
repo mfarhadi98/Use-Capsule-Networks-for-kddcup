@@ -72,7 +72,6 @@ class CapsToScalars(layers.Layer):
 
 
 class Conv2DCaps(layers.Layer):
-    print("11111111111111111")
     def __init__(self, ch_j, n_j,
                  kernel_size=(3, 3),
                  strides=(1, 1),
@@ -105,8 +104,9 @@ class Conv2DCaps(layers.Layer):
         self.activity_regularizer = regularizers.get(activity_regularizer)
         self.kernel_constraint = constraints.get(kernel_constraint)
         self.input_spec = InputSpec(ndim=rank + 3)
+        print("22222222222222222222222finish")
 
-    print("22222222222222222222222")
+    
     def build(self, input_shape):
 
         self.h_i, self.w_i, self.ch_i, self.n_i = input_shape[1:5]
